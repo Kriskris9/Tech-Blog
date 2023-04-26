@@ -1,31 +1,6 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 
-router.get('/', async (req, res) => {
-    try {
-        const postData = await Post.findAll(); 
-        res.render('post', { postData });
-        res.status(200).json(postData);
-        console.log(postData);
-    } catch (err) {
-        res.status(500).json(err);
-}});
-
-// I don't think we will need this
-router.get('/:id', async (req, res) => {
-    try {
-        const postData = await Post.findOne({
-            where: {
-                id: req.params.id
-            }},
-            {include: [{model: User, attributes: ['username']}]
-        });
-        res.status(200).json([postData]);
-        console.log(postData);
-    } catch (err) { 
-        res.status(500).json(err);
-}});
-
 router.post('/', async (req, res) => {
     try{
         const postData = await Post.create({
@@ -39,6 +14,23 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
 }});
 
+
+
+router.put('/:id', async (req, res, next) => {
+    try {
+      await Post.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      const updatedPost = await Post.findByPk(req.params.id);
+      res.json(updatedPost);
+    } catch (err) {
+      next(err);
+    }
+  });
+  
+  
 router.delete('/:id', async (req, res) => {
     try {
         const postData = await Post.destroy({

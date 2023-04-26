@@ -1,0 +1,31 @@
+
+<div class="single-blogPost">
+        <h2 class="blogPost-title">{{postData.title}}</h2>
+        <p class="blogPost-date">{{format_date postData.date_created}}</p>
+        <p class="blogPost-content">{{postData.content}}</p>
+        <p class="blogPost-author">{{postData.user_id}}</p>
+    </div>
+    <div class="blogPost-comments">
+        <h2 class="blogPost-comments-title">Comments</h2>
+        {{#each comments as |comment|}}
+        <div class="blogPost-comment">
+            <p>{{comment.comment}}</p>
+            <p class="blogPost-comment-author">{{comment.user_id}}</p>
+            <p class="blogPost-comment-date">{{format_date comment.date_created}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="blogPost-comment-form">
+        <h2>Leave A Comment</h2>
+        <form>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <button type="submit">Add Comment</button>
+        </form>
+    </div>
+
+
+
+</div>
+
+

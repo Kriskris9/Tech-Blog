@@ -12,40 +12,32 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-
-    },
-    {
         content: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
-    },
-    {
+        },
+    
         title:
         {
             type: DataTypes.STRING,
             allowNull: false,
-        }
-    },
-    {
+        },
+
         date_created:
         {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
-        }
-    },
-    {
-        user_id:
-        {
+        },
+        user_id:{
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
-                key: 'id',
-            },
+                key: 'id'
+            }
         }
     },
-
     {
         sequelize,
         timestamps: false,
