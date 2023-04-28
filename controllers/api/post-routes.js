@@ -1,22 +1,28 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
 
+// routes for api/posts
 router.post('/', async (req, res) => {
     try{
+      console.log(req.body)
+      console.log(req.session)
         const postData = await Post.create({
-            user_id: req.session.user_id,
+            user_id: req.session.userId,
             title: req.body.title,
-            date_created: req.body.date_created,
-        });
-        res.status(200).json(postData);
-        console.log([postData]);
+            content: req.body.content,
+            // date_created: req.body.date_created,
+        });     
+         console.log(postData);
+         res.redirect('/dashboard')
+  
     } catch (err) {
-        res.status(400).json(err);
+      console.log(err)
+        // res.status(400).json(err);
 }});
 
 
 
-router.put('/:id', async (req, res, next) => {
+router.post('/edit/:id', async (req, res, next) => {
     try {
       await Post.update(req.body, {
         where: {
@@ -24,7 +30,7 @@ router.put('/:id', async (req, res, next) => {
         },
       });
       const updatedPost = await Post.findByPk(req.params.id);
-      res.json(updatedPost);
+      res.redirect('/dashboard')
     } catch (err) {
       next(err);
     }

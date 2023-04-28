@@ -8,8 +8,8 @@ const userData = [
     "password": "password1",
   },
   {
-    "username": "JaneDoe",
-    "email": "jane@example.com",
+    "username": "Mike",
+    "email": "mike@example.com",
     "password": "password2",
   },
   {

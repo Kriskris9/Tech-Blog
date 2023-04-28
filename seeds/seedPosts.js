@@ -4,7 +4,7 @@ const postData = [
   {
     "title": "My First Post",
     "content": "This is the content of my first post.",
-    "user_id": 2
+    "user_id": 1
   },
   {
     "title": "Tips for Effective Time Management",
@@ -14,7 +14,7 @@ const postData = [
   {
     "title": "The Benefits of a Healthy Lifestyle",
     "content": "Living a healthy lifestyle has many benefits, including improved physical and mental health.",
-    "user_id": 2
+    "user_id": 3
   },
 ];
 

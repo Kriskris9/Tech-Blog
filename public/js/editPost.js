@@ -1,27 +1,30 @@
- // Add event listener to edit
- form.addEventListener('submit', async (event) => {
-    event.preventDefault();
 
-    const titleElement = document.querySelector
-    
-    const updatedPost =
-    {
-      title: titleInput.value,
-      content: contentInput.value
-      
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const titleElement = document.querySelector('#title');
+  const contentElement = document.querySelector('#content');
+  const id = document.location.pathname.split('/').pop();
+  console.log(titleElement)
+  console.log(contentElement)
+
+
+  const updatedPost = {
+    title: titleElement.value,
+    content: contentElement.value 
     };
-    console.log(updatedPost);
 
-    const response = await fetch('api/chat/edit/{:id}, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json', },
-      body: JSON.stringify(updatedPost),
-    })
-
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to create a new post.');
-    }
+  const response = await fetch(`api/post/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedPost)
   });
+
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert('Failed to update post.');
+  }
+});
+
+

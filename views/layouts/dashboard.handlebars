@@ -12,6 +12,7 @@
    <nav>
     <a href="/">Home</a>
     <a href="/dashboard">Dashboard</a>
+    {{#if logged_in}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
@@ -19,7 +20,7 @@
   </nav>
 
    <header>
-    <h1> <a href="/dashboard">Dashboard</a></h1>
+    <h1> Dashboard</h1>
   </header>
 
   <main>
@@ -31,14 +32,13 @@
   <section class="addNewPost">
     <button><a href="/dashboard/newPost"> Add New Post</a></button> 
 </section>
-
- <script src="/js/logout.js"></script>
- <script src="/js/dashboard.js"></script>
+  
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 </body>
 
 </html>
 
 
-{{!-- res ren 
-data: ____--}}
