@@ -1,12 +1,12 @@
-const form = document.querySelector('form');
+const deleteBtn = document.querySelector('#deleteBtn');
 
 
-form.addEventListener('submit', async (event) => {
+deleteBtn.addEventListener('click', async (event) => {
     event.preventDefault();
   
     const id = document.location.pathname.split('/').pop();
 
-    const response = await fetch(`api/post/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
       
     });

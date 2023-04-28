@@ -18,7 +18,7 @@
 
     <div class="blogPost-comment-form">
         <h2>Leave A Comment</h2>
-        {{!-- <form method="POST" action="/api/posts/edit/{{post.id}}" class="new-comment-form"> --}}
+        <form class="new-comment-form">
             <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
         
             <input id="postId" type="hidden" name="post_id" value="{{post.id}}">
@@ -34,4 +34,4 @@
 </div>
 
 
-
+<script src="/js/comment.js"></script>
