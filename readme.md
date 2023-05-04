@@ -21,6 +21,14 @@ Please refer to the LICENSE in the repo.
 
 ## Assets
 
+[!alt](/public/images/1.png)
+[!alt](/public/images/2.png)
+[!alt](/public/images/3.png)
+[!alt](/public/images/4.png)
+[!alt](/public/images/5.png)
+[!alt](/public/images/6.png)
+
+
 
 ## Deployed Link
 
