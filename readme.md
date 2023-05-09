@@ -33,3 +33,4 @@ Please refer to the LICENSE in the repo.
 
 ## Deployed Link
 
+https://arcane-taiga-56538.herokuapp.com/
